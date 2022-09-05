@@ -3952,6 +3952,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
+    - target: {fileID: 4013903902662946563, guid: f24753c583932f24d880384add2420c5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 64e3de37fdedf54449e21ab79812e277, type: 2}
     - target: {fileID: 8746649536656229412, guid: f24753c583932f24d880384add2420c5, type: 3}
       propertyPath: m_IsTrigger
       value: 1

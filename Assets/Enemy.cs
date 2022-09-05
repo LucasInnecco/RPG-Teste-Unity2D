@@ -20,22 +20,21 @@ public class Enemy : MonoBehaviour
             health = value;
             if(health <= 0){
                 Defeated();
+            }else{
+                TakeDamage();
             }
-            //else{
-            //     TakeDamage();
-            // }
         }
         get{
             return health;
         }
     }
 
-    // public void TakeDamage(){
-    //     animator.SetTrigger("TakeDamage");
-    // }
+    public void TakeDamage(){
+        animator.SetTrigger("takeDamage");
+    }
 
     public void Defeated(){
-        animator.SetTrigger("Defeated");
+        animator.SetTrigger("defeated");
     }
 
     public void RemoveEnemy(){
