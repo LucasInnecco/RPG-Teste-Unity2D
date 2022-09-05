@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     List<RaycastHit2D> castCollisions =  new List<RaycastHit2D>();
 
+    bool canMove = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,30 +28,30 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate(){
-        // If movement input is not 0, try to move
-        if(movementInput != Vector2.zero){
-            bool success = TryMove(movementInput);
-            
-            if(!success){
-                success = TryMove(new Vector2(movementInput.x, 0));
+        if(canMove){
+            // If movement input is not 0, try to move
+            if(movementInput != Vector2.zero){
+                bool success = TryMove(movementInput);
+                
+                if(!success){
+                    success = TryMove(new Vector2(movementInput.x, 0));
+                }
+                if(!success){
+                    success = TryMove(new Vector2(0, movementInput.y));
+                }
+
+                animator.SetBool("isMoving", success);
+            }else{
+                animator.SetBool("isMoving", false);
             }
-            if(!success){
-                success = TryMove(new Vector2(0, movementInput.y));
+
+            // Set direction of sprite to movement direction
+            if(movementInput.x < 0){
+                spriteRenderer.flipX = true;
+            }else if (movementInput.x > 0){
+                spriteRenderer.flipX = false;
             }
-
-            animator.SetBool("isMoving", success);
-        }else{
-            animator.SetBool("isMoving", false);
         }
-
-
-        // Set direction of sprite to movement direction
-        if(movementInput.x < 0){
-            spriteRenderer.flipX = true;
-        }else if (movementInput.x > 0){
-            spriteRenderer.flipX = false;
-        }
-        
     }
 
     private bool TryMove(Vector2 direction){
@@ -77,4 +79,18 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue movementValue){
         movementInput = movementValue.Get<Vector2>();
     }
+
+    void OnFire(){
+        animator.SetTrigger("swordAttack");
+    }
+
+    public void LockMovement(){
+        canMove = false;
+    }
+
+    public void UnlockMovement(){
+        canMove = true;
+    }
+
+
 }
