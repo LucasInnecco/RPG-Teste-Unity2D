@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isMoving", false);
         }
 
-        print("isMoving: " + animator.GetBool("isMoving"));
 
         // Set direction of sprite to movement direction
         if(movementInput.x < 0){
