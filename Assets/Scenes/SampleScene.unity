@@ -3715,5 +3715,13 @@ PrefabInstance:
       propertyPath: m_DefaultActionMap
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8474765865171596708, guid: 6694621530a8c4846838bf0e0674e580, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474765865171596708, guid: 6694621530a8c4846838bf0e0674e580, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6694621530a8c4846838bf0e0674e580, type: 3}
